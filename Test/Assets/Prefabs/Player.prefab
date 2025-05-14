@@ -812,13 +812,13 @@ MonoBehaviour:
   ShotSound: {fileID: 8300000, guid: c61f9dc4363342c47ad930f260084f8d, type: 3}
   DamageSound: {fileID: 8300000, guid: cdc31c7c9b1fcb842a6f9e4e3d2fa9e3, type: 3}
   jumpCooldown: 0.2
-  vfxEntries:
-  - name: BasicImpacts
-    vfxObject: {fileID: 441973028638082585}
   cameraAreaManager: {fileID: 0}
   mapManager: {fileID: 0}
-  sceneButtonManager: {fileID: 0}
   maxFallSpeed: 5
+  maxStamina: 100
+  staminaRecoveryPerSecond: 10
+  staminaDrainPerSecond: 20
+  staminaSlider: {fileID: 2337392732886737613, guid: 71d01d09006e65745a3eff46392b3cc3, type: 3}
 --- !u!114 &163183520200374533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1122,11 +1122,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e0834a8723ea1a4d96d3e031b2bed05, type: 3}
---- !u!1 &441973028638082585 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8080324812523652688, guid: 2e0834a8723ea1a4d96d3e031b2bed05, type: 3}
-  m_PrefabInstance: {fileID: 8503113562011041865}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5760318195913416269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4175367207885921796, guid: 2e0834a8723ea1a4d96d3e031b2bed05, type: 3}
