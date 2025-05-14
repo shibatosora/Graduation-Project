@@ -30,6 +30,9 @@ namespace Scripts
         private float staminaDrainPerSecond = 0f;
         
         private PlayerInput MoveAction;
+        
+        private float attackCoolMaxTime = 1f;
+        private float attackCoolTime = 0f;
         private void Start()
         {
             Power *= PowerDirection;
@@ -83,9 +86,15 @@ namespace Scripts
                 {
                     player.currentStamina = 0;
                     player.AttackFinish();
+                    if (attackCoolTime > attackCoolMaxTime)
+                    {
+                        Attack(); 
+                        attackCoolTime = 0;
+                    }
+
                 }
             }
-
+            attackCoolTime+= Time.deltaTime;
             player.staminaSlider.value = player.currentStamina;
             
         }
@@ -115,7 +124,7 @@ namespace Scripts
                 isAttack = true;
                 Time.timeScale = 0.2f;
                 Power = UnityEngine.Vector3.zero;
-                Invoke("Attack", 0.3f);
+                //Invoke("Attack", 0.3f);
 
             }
 
@@ -179,7 +188,7 @@ namespace Scripts
 
         private void OffAttack(InputAction.CallbackContext context)
         {
-            CancelInvoke("Attack");
+            //CancelInvoke("Attack");
             Attack();
         }
         public Vector3 GetPower()
@@ -203,6 +212,11 @@ namespace Scripts
         public void ResetBullet()
         {
             MoveAction.actions["Attack"].canceled -= OffAttack;
+        }
+
+        public void OfAttack()
+        {
+            Attack();
         }
     }
 }

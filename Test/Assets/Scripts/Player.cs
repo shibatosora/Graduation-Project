@@ -68,7 +68,7 @@ namespace Scripts
             MoveAction.actions["Jump"].started += OnJump;
             MoveAction.actions["Shot"].started += OnShot;
             MoveAction.actions["Attack"].performed += OnAttack;
-            MoveAction.actions["Attack"].canceled += OnAttack;
+            MoveAction.actions["Attack"].canceled += OffAttack;
             MoveAction.actions["Jump"].canceled += OffJump;
             MoveAction.actions["QuickAttack"].performed += OnQuickAttack;
 
@@ -228,8 +228,8 @@ namespace Scripts
 
             IsAttacking = true;
             AttackCollision.gameObject.SetActive(true);
-            Invoke("AttackFinish", 0.3f);
-            animator.SetTrigger("isAttack");
+            //Invoke("AttackFinish", 0.3f);
+
         }
 
         public void OnQuickAttack(InputAction.CallbackContext context)
@@ -244,6 +244,7 @@ namespace Scripts
         private void OffAttack(InputAction.CallbackContext context)
         {
             AttackFinish();
+            animator.SetTrigger("isAttack");
         }
         public void AttackFinish()
         {
